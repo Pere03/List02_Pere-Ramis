@@ -19,6 +19,7 @@ public class Exercise1 : MonoBehaviour
     {
         enemiesLeft = FindObjectsOfType<Exercise1_Sphere>().Length;
 
+        //This means that each time all the spheres are removed, the total sphere counter will add one more entity, and spawn the total number of spheres at that moment
         if (enemiesLeft <= 0)
         {
             enemiesForWave++;
@@ -27,18 +28,22 @@ public class Exercise1 : MonoBehaviour
         }
     }
 
+    //With this we mark the limits per screen, so that the spheres are generated inside the limit and not outside
     private Vector3 RandomSpawnPosition()
     {
-        positionOffset.x = Random.Range(-11, 11);
-        positionOffset.y = Random.Range(-5, 6);
+        positionOffset.x = Random.Range(-8, 8);
+        positionOffset.y = Random.Range(-2, 5);
         positionOffset.z = Random.Range(-0,0);
 
         return positionOffset;
     }
+
+    //With this, we instantiate the spheres within the set limit.
     private void SpawnSphere()
     {
         Instantiate(SpherePrefab, RandomSpawnPosition(), transform.rotation);
     }
+
 
     private void SpawnEnemyWave(int totalEnemies)
     {

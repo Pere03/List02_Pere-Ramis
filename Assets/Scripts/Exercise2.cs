@@ -20,7 +20,8 @@ public class Exercise2 : MonoBehaviour
 
     void Update()
     {
-        if(startCount == true & timeValue > 0)
+        //With this we do that if the boolean that we have done is activated and the time is not 0, it subtracts the time to the value we have set, until it reaches 0
+        if (startCount == true & timeValue > 0)
         {
             if (timeValue > 0)
             {
@@ -34,6 +35,7 @@ public class Exercise2 : MonoBehaviour
         }
         DisplayTime(timeValue);
 
+        //This causes the bar to change color as it decreases
         if (bar.fillAmount <= 1 & bar.fillAmount >= 0.5)
         {
             bar.color = new Color32(14,255,0,255);
@@ -48,12 +50,14 @@ public class Exercise2 : MonoBehaviour
                 }
     }
 
+    //This causes the boolean to become active, and the timer function starts
     public void Start_Timer()
     {
         startCount = true;
         timeValue = maxTime;
     }
 
+    //With this we make the value of the time be displayed in Hours, Minutes and Seconds, through a text
     void DisplayTime(float timeToDisplay)
     {
         if (timeToDisplay < 0)
